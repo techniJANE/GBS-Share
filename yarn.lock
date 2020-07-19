@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-reveal.js-chalkboard@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/reveal.js-chalkboard/-/reveal.js-chalkboard-1.0.0.tgz#5fa4a1e631082f92524a78cb590897128158c993"
-  integrity sha512-lSNmMiIbYo/1Bh2wF3JgWgAB6K60wI8GO5AJhO6sBTSVV5nRAQnlH6ybkzr8PnY+pbcjvsPsXVghFF7pt/2WIw==
-
 reveal.js@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.0.2.tgz#2e5e9f8ed0fa239924b448f21d4238c5aa6e852e"
