@@ -8,8 +8,7 @@ new Reveal({
   width: "100%",
   height: "100%",
   margin: 0,
-  transition: "zoom",
-  loop: true,
+  transition: "slide",
   plugins: [Highlight, Markdown],
 }).initialize();
 
