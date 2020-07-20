@@ -6,6 +6,7 @@
 .reveal h5,
 .reveal h6 {
   font-family: monospace;
+  text-transform: unset;
 }
 
 #cover {
