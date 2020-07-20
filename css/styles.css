@@ -9,6 +9,11 @@
   text-transform: unset;
 }
 
+ul,
+ol {
+  list-style-type: none !important;
+}
+
 #cover {
   position: absolute;
   height: 100%;
