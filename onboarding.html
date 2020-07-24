@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Bootcamp</title>
+    <link rel="stylesheet" href="/node_modules/reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/reveal.js/dist/theme/white.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/reveal.js/plugin/highlight/monokai.css "
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.png" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section id="cover">
+          <div id="logo-wrapper">
+            <img src="img/logo.png" style="max-width: 25rem;" />
+          </div>
+        </section>
+        <section>
+          <h3>Installation Guide</h3>
+          <ul>
+            <li>💡 Try to follow the steps in order</li>
+            <li>🤷‍♂️ Move on if you get stuck</li>
+            <li>✋🏽 Note which steps are critical</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Pre-Setup</h3>
+          <ul>
+            <li>💻 Open Terminal</li>
+          </ul>
+          <pre><code class="sh" style="text-align: center;">xcode-select --install</code></pre>
+        </section>
+        <section>
+          <h3>Applications</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td><b>⌨️ Visual Studio Code</b></td>
+                <td>Text Editor</td>
+              </tr>
+              <tr>
+                <td><b>📦 Postman</b></td>
+                <td>HTTP Requests</td>
+              </tr>
+              <tr>
+                <td><b>🕸 Chrome</b></td>
+                <td>Web Browser</td>
+              </tr>
+            </tbody>
+          </table>
+          <pre><code class="sh" style="text-align: center;">curl -s 'https://api.macapps.link/en/chrome-vscode-postman' | sh</code></pre>
+        </section>
+        <section>
+          <h3>Chrome Extensions</h3>
+          <ul>
+            <li>👍 Open Chrome</li>
+            <li>
+              🏷 Visit the
+              <a
+                href="https://chrome.google.com/webstore/category/extensions"
+                target="_blank"
+              >
+                Chrome App Store
+              </a>
+            </li>
+            <li>
+              👇 Install the following
+            </li>
+            <br />
+            <li>🚀 Apollo Client Developer Tools</li>
+            <li>✍️ JSON Formatter</li>
+            <li>🌈 Rainbow Color Picker</li>
+            <li>🛠 React Developer Tools</li>
+          </ul>
+        </section>
+        <section>
+          <h3>🍺 Homebrew</h3>
+          <ul>
+            <li>🎁 Open Source Package Manager for MacOS</li>
+            <li>✋🏽 Critical Before Moving On</li>
+          </ul>
+          <pre><code class="sh" style="text-align: center;">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"</code></pre>
+        </section>
+        <section>
+          <h3>🤖 Node.js && 🧶 Yarn</h3>
+          <ul>
+            <li>🏃🏾‍♀️ JavaScript runtime outside of the browser</li>
+            <li>🎁 Package Manager for the NPM Registry</li>
+          </ul>
+          <pre><code class="sh" data-trim>
+            brew install node
+            node -v
+            brew install yarn
+            yarn -v
+          </code></pre>
+        </section>
+        <section>
+          <h3>⌨️ VS Code Configuration and Extensions</h3>
+          <ul>
+            <li>🔎 Open text files from the Terminal</li>
+            <li>🩹 Fix formatting errors in our code</li>
+            <br />
+            <li>1. Open VS Code</li>
+            <li>2. Open the Command Palette (command + shift + p)</li>
+            <li>3. Shell Command: Install 'code' command in PATH command</li>
+            <li>4. Open the Extensions tab (command + shift + x)</li>
+            <br />
+            <li>👇 Install the following extensions</li>
+            <br />
+            <li>🧵 ESLint 💅 Prettier 🔭 GitLens 💞 Live Share 📈 GraphQL</li>
+          </ul>
+        </section>
+        <section>
+          <h3>⌨️ VS Code Configuration and Extensions</h3>
+          <pre><code class="sh" data-trim>
+            npx install-peerdeps --global eslint-config-wesbos
+            echo '{ "extends": [ "wesbos" ] }' > ~/.eslintrc
+          </code></pre>
+          <ul>
+            <li>1. Open the Command Palette (command + shift + p)</li>
+            <li>2. Preferences: Open Settings (JSON)</li>
+            <br />
+            <li>👇 Replace the contents of the file with the following</li>
+          </ul>
+          <pre><code class="json" data-trim>
+            {
+              "workbench.colorTheme": "Default Light+",
+              "window.zoomLevel": 1,
+              "editor.tabSize": 2,
+              "editor.detectIndentation": false,
+              "editor.formatOnSave": true,
+              "[javascript]": {
+                "editor.formatOnSave": false
+              },
+              "[javascriptreact]": {
+                "editor.formatOnSave": false
+              },
+              "editor.codeActionsOnSave": {
+                "source.fixAll": true
+              },
+              "prettier.disableLanguages": ["javascript", "javascriptreact"]
+            }
+          </code></pre>
+        </section>
+        <section>
+          <h3>Oh My Zsh</h3>
+          <ul>
+            <li>🦸‍♀️ Give your Terminal superpowers</li>
+            <li>🕺🏻 Follow any instructions in the prompt</li>
+            <li>✋🏽 Close and reopen your entire Terminal program</li>
+          </ul>
+          <pre><code class="sh" style="text-align: center;">sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></pre>
+        </section>
+        <section>
+          <h3>🐘 PostgreSQL</h3>
+          <ul>
+            <li>🥞 Open Source Database</li>
+          </ul>
+          <pre><code class="sh" data-trim>
+            brew install postgresql
+            brew services start postgresql
+            createdb
+          </code></pre>
+        </section>
+        <section>
+          <h3>🤖 Node Version Manager</h3>
+          <ul>
+            <li>👯‍♂️ Allows multiple versions of Node.js</li>
+            <li>🎉 We will default to using the latest "stable" version</li>
+            <li>📟 Our own apps use a slightly older version, though</li>
+          </ul>
+          <pre><code class="sh" data-trim>
+            brew install nvm
+            . ~/.nvm/nvm.sh 
+            nvm alias default stable
+          </code></pre>
+        </section>
+        <section>
+          <h3>☁️ GitHub</h3>
+          <ul>
+            <li>🤝 Platform for collaborating on (software) projects</li>
+            <li>📩 Make sure you have accepted your GitHub invite</li>
+            <li>
+              🖱 Or, click
+              <a href="https://github.com/rbi-learning" target="_blank">
+                https://github.com/rbi-learning
+              </a>
+            </li>
+            <li>
+              🔑 Generate an SSH key and
+              <a
+                href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh"
+                target="_blank"
+              >
+                add it to GitHub
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>🔮 Heroku</h3>
+          <ul>
+            <li>🚀 Deployment platform for hosting software projects</li>
+            <li>👩🏽‍💻 Create an account</li>
+            <li>💳 Enter a CC (we will keep everything in the free tier)</li>
+          </ul>
+          <pre><code class="sh" data-trim>
+            brew tap heroku/brew && brew install heroku
+            heroku login
+          </code></pre>
+        </section>
+        <section>
+          <h3>Account Check</h3>
+          <ul>
+            <li>👨🏽‍🎓 Codecademy PRO</li>
+            <li>🐣 Beginner JS</li>
+            <li>💾 Personal GDrive (for one-off projects)</li>
+            <br />
+            <li>👇 For students staying on weeks 5-8</li>
+            <br />
+            <li>☁️ AWS CLI (later)</li>
+            <li>🏗 Serverless Framework (later)</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.16.1/dist/tsparticles.min.js"></script>
+    <script src="js/deck.js" type="module"></script>
+  </body>
+</html>
