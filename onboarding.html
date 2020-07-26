@@ -59,6 +59,15 @@
             </tbody>
           </table>
           <pre><code class="sh" style="text-align: center;">curl -s 'https://api.macapps.link/en/chrome-vscode-postman' | sh</code></pre>
+          <p>
+            If you have trouble opening Chrome, try
+            <a
+              href="https://support.google.com/chrome/thread/28825479?hl=en&msgid=28825932"
+              target="_blank"
+            >
+              this
+            </a>
+          </p>
         </section>
         <section>
           <h3>Chrome Extensions</h3>
@@ -177,13 +186,15 @@
           <ul>
             <li>👯‍♂️ Allows multiple versions of Node.js</li>
             <li>🎉 We will default to using the latest "stable" version</li>
-            <li>📟 Our own apps use a slightly older version, though</li>
+            <li>📟 Our own apps use a slightly older version</li>
           </ul>
           <pre><code class="sh" data-trim>
             brew install nvm
-            . ~/.nvm/nvm.sh 
+            nvm install stable
             nvm alias default stable
           </code></pre>
+          <p>Follow any instructions suggested in your terminal output</p>
+          <p>You may need to close and reopen the terminal</p>
         </section>
         <section>
           <h3>☁️ GitHub</h3>
