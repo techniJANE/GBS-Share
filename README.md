@@ -10,4 +10,4 @@ You can make as many presentations as you like as HTML files in the root of this
 
 ## To Deploy
 
-- `git push origin master` (GH Pages reads from master)
+- Submit a pull request into `master` (GH Pages reads from master)
