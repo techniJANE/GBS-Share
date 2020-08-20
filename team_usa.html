@@ -29,74 +29,85 @@
         <section>
           <h2>RBI Tech Bootcamp presents...</h2>
           <h1 style="font-family: blockpro; color: rgb(201, 3, 37);">
-            TEAM USA🇺🇸 <img id="bklogo" src="img/team_usa/logo.svg" />
+            TEAM USA🇺🇸<img id="bklogo" src="img/team_usa/logo.svg" />
           </h1>
         </section>
         <section>
-          <h2>Meet the Team!</h2>
+          <h2>MEET THE TEAM!</h2>
           <div class="meet-the-team">
             <div class="team-member">
               <img src="img/team_usa/alexandra.jpg" alt="Alexandra" />
-              <span>Alexandra Caplan</span>
+              <span class="name">Alexandra Caplan</span>
               <span class="role">Senior Manager, Marketing Analytics</span>
             </div>
             <div class="team-member">
               <img src="img/team_usa/sara.png" alt="Sara" />
-              <span>Sara Ho</span>
+              <span class="name">Sara Ho</span>
               <span class="role">Senior Manager, Digital</span>
             </div>
             <div class="team-member">
               <img src="img/team_usa/alexis.jpg" alt="Alexis" />
-              <span>Alexis Matheus</span>
-              <span class="role">Manager, Operations R&D</span>
+              <span class="name">Alexis Matheus</span>
+              <span class="role">Associate Product Manager</span>
             </div>
             <div class="team-member">
               <img src="img/team_usa/patrick.png" alt="Patrick" />
-              <span>Patrick O'Sullivan</span>
-              <span class="role">Sr. Analyst, Professional Recruiting</span>
+              <span class="name">Patrick O'Sullivan</span>
+              <span class="role">Associate Product Manager</span>
             </div>
             <div class="team-member">
               <img src="img/team_usa/paula.jpg" alt="Paula" />
-              <span>Paula Pereira</span>
+              <span class="name">Paula Pereira</span>
               <span class="role">Manager, Insights & Category Development</span>
             </div>
           </div>
         </section>
         <section>
-          <h2>SCENARIO</h2>
+          <h1>OUR BK MENU PROJECT</h1>
+          <img id="bklogo" src="img/team_usa/logo.svg" />
+        </section>
+        <section
+          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-interactive
+        ></section>
+        <section>
+          <h1>DEEP DIVE ON PROJECT FUNCTIONALITY</h1>
+        </section>
+        <section>
+          <h2>SCENARIO 1 - CATEGORIZING MENU PRODUCTS</h2>
           <table>
             <tbody>
               <tr>
-                <td>👨‍💻 Given...</td>
+                <td>👨‍💻 GIVEN...</td>
                 <td>A guest is on the main menu</td>
               </tr>
               <tr>
-                <td>🤔 When...</td>
+                <td>🤔 WHEN...</td>
                 <td>They click on a menu category</td>
               </tr>
               <tr>
-                <td>✅ Then...</td>
+                <td>✅ THEN...</td>
                 <td>
-                  The page will show only products from that category
+                  The page will only show products from that category
                 </td>
               </tr>
             </tbody>
           </table>
         </section>
         <section>
-          <h2>SCENARIO</h2>
+          <h2>SCENARIO 2 - BUILDING THE MENU CAROUSEL</h2>
           <table>
             <tbody>
               <tr>
-                <td>👨‍💻 Given...</td>
+                <td>👨‍💻 GIVEN...</td>
                 <td>A guest is on the main menu</td>
               </tr>
               <tr>
-                <td>🤔 When...</td>
+                <td>🤔 WHEN...</td>
                 <td>They click on a menu category</td>
               </tr>
               <tr>
-                <td>✅ Then...</td>
+                <td>✅ THEN...</td>
                 <td>
                   The categories will transform into a carousel at the top of
                   the page
@@ -106,47 +117,9 @@
           </table>
         </section>
         <section>
-          <p>✏️ And write user stories...</p>
-          <h1>👩🏽‍💻 As an rbi marketer,</h1>
-          <h2>
-            🤔 When I am engaging with the Burger King, Popeyes & Tim Hortons
-            apps
-          </h2>
-          <h3>
-            💡 I would like to understand which features of the app are clicked
-            on or engaged with most frequently
-          </h3>
-          <h4>
-            😁 So that I can optimize online offerings and ensure successful
-            targeting of future guests
-          </h4>
-        </section>
-        <section>
-          <h1>What we built 👷‍♀️</h1>
-        </section>
-        <!-- Replace with your Heroku Site -->
-        <section
-          data-background-iframe="//stripe-store-demo.herokuapp.com"
-          data-background-interactive
-        ></section>
-        <section>
-          <h1>🏗 Technologies Used</h1>
-          <ul>
-            <li>✏️ HTML</li>
-            <li>🎨 CSS</li>
-            <li>🦾 JS</li>
-            <li>☁️ GitHub</li>
-            <li>🥞 SQL</li>
-          </ul>
-          <p>
-            Coordinate with the other team so you highlight different aspects of
-            what you built
-          </p>
-        </section>
-        <section>
-          <h1>📓 Code Snippet - Carousel</h1>
+          <h1>CODE SAMPLE - CAROUSEL</h1>
           <pre><code lang="js">
-            // This is an example code snippet
+  <!-- Building out the function that renders each menu category -->
             const renderCategory = category => {
               const html = `
                 <button class="category" data-category="${category.name}">
@@ -163,20 +136,169 @@
               button.addEventListener('click', selectCategory)
               return fragment
             }
+  <!-- The selectCategory function adds the carousel feature and filters products by the guest's selected category -->
+
+            const selectCategory = event => {
+              categoriesSection.classList.add('carousel')
+              const theButtonThatGotClicked = event.currentTarget
+              const allCategories = document.querySelectorAll('.category')
+              allCategories.forEach(category => {
+                category.classList.remove('selected')
+                const img = category.querySelector('img')
+                img.src = img.dataset.carouselimage
+              })
+              theButtonThatGotClicked.classList.add('selected')
+              const selectedCategory = theButtonThatGotClicked.dataset.category
+              const filteredProducts = products.filter(
+                product => product.category === selectedCategory
+              )
+              const fragments = filteredProducts.map(renderProduct);
+              productsSection.innerHTML = '';
+              productsSection.prepend(...fragments);  
+            }
+
+   <!-- The unselectCategory function removes the carousel feature and brings us back to the overall list of categories -->
+            
+            const unselectCategory = () => {
+              categoriesSection.classList.remove('carousel')
+              const allCategories = document.querySelectorAll('.category')
+              allCategories.forEach(category => {
+                category.classList.remove('selected')
+                const img = category.querySelector('img')
+                img.src = img.dataset.primaryimage
+              })
+              productsSection.innerHTML = '';
+            }
+            
           </code></pre>
+        </section>
+        <section
+          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-interactive
+        ></section>
+        <section><h1>WRITING & EXECUTING USER STORIES</h1></section>
+        <section class="user-stories">
+          <h2>CLICK TRACKING EXAMPLE</h2>
+          <p>👩🏽‍💻 <em>As an </em> RBI marketer,</p>
           <p>
-            Coordinate with the other team so you highlight different aspects of
-            what you built
+            🤔 <em>When I am </em> analyzing the Burger King, Popeyes or Tim
+            Hortons apps
+          </p>
+          <p>
+            💡 <em>I would like to</em> understand which features are clicked on
+            or engaged with most frequently by guests
+          </p>
+          <p>
+            😁 <em>So that I can</em> optimize online offerings and ensure
+            successful targeting of future guests
           </p>
         </section>
         <section>
-          <h2>🤓 😎 😤 🤯 🥳 Who did what?</h2>
+          <h1>CODE SAMPLE - SQL</h1>
+          <pre><code lang="js">
+   <!-- Creating the table in SQL          -->
+  db.query(`
+      CREATE TABLE IF NOT EXISTS clicks(
+      id SERIAL PRIMARY KEY,
+      whatGotClicked VARCHAR(128) NOT NULL, 
+      pageX INT NOT NULL, 
+      pageY INT NOT NULL,
+      dataId VARCHAR(128) NOT NULL,
+      timestamp INT NOT NULL,
+      userId VARCHAR(128) NOT NULL 
+    ); 
+      `);
+    <!-- Receiving the request for information and sending a response to the front end  -->
+  app.post('/clicks', async (request, response) => {
+      const {
+      whatGotClicked,
+      pageX,
+      pageY,
+      dataId,
+      timestamp,
+      userId,
+      } = request.body;
+  <!-- Adding the information to the the SQL table -->
+  await db.query(
+    `INSERT INTO clicks (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+    [
+    whatGotClicked.slice(0, 128),
+    pageX,
+    pageY,
+    dataId,
+    timestamp,
+    Number(userId),
+    ]
+    );
+  
+  response.json({ clicked: 'event' });
+  });
+          </code></pre>
+        </section>
+        <section
+          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-interactive
+        ></section>
+        <section>
+          <h1>TECHNOLOGIES USED</h1>
+          <ul class="tech-used">
+            <li>
+              ✏️ HTML: Used to build out skeleton structure of our webpage
+            </li>
+            <li>🎨 CSS: Used to style and format features</li>
+            <li>🦾 JS: Used to create functionality and dynamism</li>
+            <li>
+              ☁️ GitHub: Used to collaborate via branches and share our code
+            </li>
+            <li>🥞 SQL: Used to glean insights from user data</li>
+            <li>
+              🧠SANITY: Content Management System used to store images & data
+              much like a back-end server
+            </li>
+            <li>
+              📈 GRAPHQL: Query language for our API (SANITY)
+            </li>
+            <li>
+              💳 STRIPE: Payment platform used to store our products & prices
+            </li>
+          </ul>
         </section>
         <section>
-          <h1>🔑 Key Takeaways</h1>
+          <h1>TEAM USA KEY FOCUS AREAS</h1>
+          <ul class="focus-areas">
+            <li>SARA: Cart functionality & CSS stylista</li>
+            <li>PATRICK: Click tracking SQL implementation & Stripe chief</li>
+            <li>ALEXANDRA: Sanity specialist & GraphQL querier</li>
+            <li>ALEXIS: Carousel king & Data wizard</li>
+            <li>PAULA: Heroku heroine & Data wizard</li>
+          </ul>
+        </section>
+        <section>
+          <h1>KEY TAKEAWAYS</h1>
           <p>
-            How might you use these skills in your next role?
+            Through RBI Tech Bootcamp, we have gained and will bring forward:
           </p>
+          <ul class="keytakeaways-list">
+            <li>
+              A greater understanding of the instrinsic tie between software
+              engineering and the success of our brands.
+            </li>
+            <li>
+              More robust & creative thinking regarding customer data capture.
+            </li>
+            <li>
+              The ability to collaborate more effectively with our development
+              team to generate results.
+            </li>
+            <li>
+              Confidence around utilizing and implementing code on our own
+              projects and analysis (i.e. SANITY, SQL, GRAPHQL, etc.)
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>THANK YOU</h1>
+          <h2>We welcome any questions!</h2>
         </section>
       </div>
     </div>

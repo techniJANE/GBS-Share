@@ -56,6 +56,10 @@ body {
   place-items: center;
 }
 
+.name {
+  text-transform: uppercase;
+}
+
 .role {
   font-family: barlow;
   font-size: 12pt;
@@ -64,4 +68,43 @@ body {
 
 tbody {
   font-family: barlow;
+  font-size: 24pt;
+}
+
+.user-stories {
+  margin: 0 0 0 2rem;
+}
+
+.user-stories p {
+  font-family: barlow;
+  font-size: 24pt;
+  text-align: left;
+  margin: 0 0 0 2rem;
+  padding: 1rem;
+}
+
+.keytakeaways-list {
+  font-family: barlow;
+  font-size: 24pt;
+  margin: 0 0 0 5rem;
+  max-width: 80rem;
+}
+.keytakeaways-list li {
+  margin: 1rem 0 0 0;
+  list-style: square;
+}
+
+.focus-areas {
+  font-family: barlow;
+  font-size: 24pt;
+}
+
+.focus-areas li {
+  margin: 1rem 0 0 0;
+}
+
+li {
+  font-family: barlow;
+  font-size: 24pt;
+  margin: 1rem 0 0 0;
 }
