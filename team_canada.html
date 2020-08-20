@@ -33,7 +33,10 @@
             <img src="img/logo.png" style="max-width: 25rem;" />
           </div>
         </section>
-        <section>
+        <section
+          id="canada"
+          style="background-image: url('./img/team_canada/flag');"
+        >
           <h1>Team Canada, Eh!</h1>
           <h2>🇨🇦☕️🍔🍗</h2>
         </section>
@@ -51,29 +54,100 @@
         </section>
         <section>
           <table>
-            <h2>We can use Gherkin...</h2>
             <tbody>
               <tr>
                 <td>👨‍💻 Given...</td>
-                <td>Scenario goes here</td>
+                <td>The user wants to add a product to their cart</td>
               </tr>
               <tr>
-                <td>🤔 When...</td>
-                <td>Scenario goes here</td>
+                <td>
+                  🤔 When...
+                </td>
+                <td>
+                  The user clicks on an item's price attribute
+                </td>
               </tr>
               <tr>
                 <td>✅ Then...</td>
-                <td>Scenario goes here</td>
+                <td>
+                  The specfic item is added to the quantity of the product, and
+                  is incremented by one
+                </td>
               </tr>
             </tbody>
           </table>
         </section>
         <section>
+          <table>
+            <tbody>
+              <tr>
+                <td>👨‍💻 Given...</td>
+                <td>The user wants to checkout and proceed to payment</td>
+              </tr>
+              <tr>
+                <td>
+                  🤔 When...
+                </td>
+                <td>
+                  The user clicks on "checkout" within the cart
+                </td>
+              </tr>
+              <tr>
+                <td>✅ Then...</td>
+                <td>
+                  The user will be redirected to the stripe payment platform,
+                  where the user can provide their payment information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <table>
+            <tbody>
+              <tr>
+                <td>👨‍💻 Given...</td>
+                <td>
+                  The user wants to go back and view all product categories
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  🤔 When...
+                </td>
+                <td>
+                  The user is within a specfic product category
+                </td>
+              </tr>
+              <tr>
+                <td>✅ Then...</td>
+                <td>
+                  The user will click on the main menu button
+                </td>
+              </tr>
+              <tr>
+                <td>💪 And...</td>
+                <td>
+                  Will be redirected to the main menu where the user can view
+                  all the product categories
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="user">
           <p>✏️ And write user stories...</p>
-          <h1>👩🏽‍💻 As a user,</h1>
-          <h2>🤔 When I am ...</h2>
-          <h3>💡 I would like to...</h3>
-          <h4>😁 So that I can...</h4>
+          <h1>👩🏽‍💻 As a user interfacing with the Tim Horton's menu</h1>
+          <h2>
+            🤔 When I am clicking on the "checkout" button within the cart ...
+          </h2>
+          <h3>
+            💡 I would like to be redirected to a payment processing platform
+          </h3>
+          <h4>
+            😁 Where I can provide my payment informaation and complete my
+            transaction
+          </h4>
         </section>
         <section>
           <h1>What we built 👷‍♀️</h1>
