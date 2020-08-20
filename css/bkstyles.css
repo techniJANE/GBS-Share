@@ -31,3 +31,37 @@
 body {
   font-family: barlow;
 }
+
+#bklogo {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+.meet-the-team {
+  font-family: blockpro;
+  font-size: 16pt;
+  display: flex;
+  place-content: center;
+}
+
+.meet-the-team img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.team-member {
+  display: grid;
+  place-items: center;
+}
+
+.role {
+  font-family: barlow;
+  font-size: 12pt;
+  max-width: 170px;
+}
+
+tbody {
+  font-family: barlow;
+}
