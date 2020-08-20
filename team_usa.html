@@ -67,7 +67,7 @@
           <img id="bklogo" src="img/team_usa/logo.svg" />
         </section>
         <section
-          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-iframe="https://team-usa-burger-king.herokuapp.com"
           data-background-interactive
         ></section>
         <section>
@@ -117,63 +117,75 @@
           </table>
         </section>
         <section>
-          <h1>CODE SAMPLE - CAROUSEL</h1>
+          <h1>CODE SAMPLE - CAROUSEL (1/3)</h1>
           <pre><code lang="js">
-  <!-- Building out the function that renders each menu category -->
-            const renderCategory = category => {
-              const html = `
-                <button class="category" data-category="${category.name}">
-                  <img 
-                    src="${category.primaryImage.asset.url}" 
-                    alt="${category.name}"
-                    data-primaryimage="${category.primaryImage.asset.url}" 
-                    data-carouselimage="${category.carouselImage.asset.url}" 
-                  />
-                  <h2>${category.name}</h2>
-                </button>`
-              const fragment = document.createRange().createContextualFragment(html)
-              const button = fragment.querySelector('button')
-              button.addEventListener('click', selectCategory)
-              return fragment
-            }
-  <!-- The selectCategory function adds the carousel feature and filters products by the guest's selected category -->
+  /* Building out the function that renders each menu category */
+  const renderCategory = category => {
+    const html = `
+      <button data-trackingid="${category.name}" class="category" data-category="${category.name}">
+        <img 
+          src="${category.primaryImage.asset.url}" 
+          alt="${category.name}"
+          data-primaryimage="${category.primaryImage.asset.url}" 
+          data-carouselimage="${category.carouselImage.asset.url}" 
+        />
+        <h2>${category.name}</h2>
+      </button>`;
+    const fragment = document.createRange().createContextualFragment(html);
+    const button = fragment.querySelector('button');
+    button.addEventListener('click', selectCategory);
+    return fragment;
+  };
+</code></pre>
+        </section>
+        <section>
+          <h1>CODE SAMPLE - CAROUSEL (2/3)</h1>
+          <pre><code lang="js">
+   /* The selectCategory function adds the carousel feature and filters products by the guest's selected category */
 
-            const selectCategory = event => {
-              categoriesSection.classList.add('carousel')
-              const theButtonThatGotClicked = event.currentTarget
-              const allCategories = document.querySelectorAll('.category')
-              allCategories.forEach(category => {
-                category.classList.remove('selected')
-                const img = category.querySelector('img')
-                img.src = img.dataset.carouselimage
-              })
-              theButtonThatGotClicked.classList.add('selected')
-              const selectedCategory = theButtonThatGotClicked.dataset.category
-              const filteredProducts = products.filter(
-                product => product.category === selectedCategory
-              )
-              const fragments = filteredProducts.map(renderProduct);
-              productsSection.innerHTML = '';
-              productsSection.prepend(...fragments);  
-            }
+   const selectCategory = event => {
+        menuHeroText.classList.add('hidden');
+        categoriesSection.classList.add('carousel');
+        const theButtonThatGotClicked = event.currentTarget;
+        const allCategories = document.querySelectorAll('.category');
+        allCategories.forEach(category => {
+          category.classList.remove('selected');
+          const img = category.querySelector('img');
+          img.src = img.dataset.carouselimage;
+        });
+        theButtonThatGotClicked.classList.add('selected');
+        const selectedCategory = theButtonThatGotClicked.dataset.category;
+        const filteredProducts = products.filter(
+          product => product.category === selectedCategory
+        );
+        const fragments = filteredProducts.map(renderProduct);
+        productsSection.innerHTML = '';
+        productsSection.prepend(...fragments);
+      };
+    </code></pre>
+        </section>
+        <section>
+          <h1>CODE SAMPLE - CAROUSEL (3/3)</h1>
+          <pre><code lang="js">
 
-   <!-- The unselectCategory function removes the carousel feature and brings us back to the overall list of categories -->
+   /* The unselectCategory function removes the carousel feature and brings us back to the overall list of categories*/
             
-            const unselectCategory = () => {
-              categoriesSection.classList.remove('carousel')
-              const allCategories = document.querySelectorAll('.category')
-              allCategories.forEach(category => {
-                category.classList.remove('selected')
-                const img = category.querySelector('img')
-                img.src = img.dataset.primaryimage
-              })
-              productsSection.innerHTML = '';
-            }
+   const unselectCategory = () => {
+    menuHeroText.classList.remove('hidden');
+    categoriesSection.classList.remove('carousel');
+    const allCategories = document.querySelectorAll('.category');
+    allCategories.forEach(category => {
+      category.classList.remove('selected');
+      const img = category.querySelector('img');
+      img.src = img.dataset.primaryimage;
+    });
+    productsSection.innerHTML = '';
+  };
             
           </code></pre>
         </section>
         <section
-          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-iframe="https://team-usa-burger-king.herokuapp.com"
           data-background-interactive
         ></section>
         <section><h1>WRITING & EXECUTING USER STORIES</h1></section>
@@ -194,49 +206,57 @@
           </p>
         </section>
         <section>
-          <h1>CODE SAMPLE - SQL</h1>
+          <h1>CODE SAMPLE - CLICK TRACKING (1/3)</h1>
           <pre><code lang="js">
-   <!-- Creating the table in SQL          -->
-  db.query(`
-      CREATE TABLE IF NOT EXISTS clicks(
+
+      /* Creating the table in SQL */
+  
+    db.query(`
+      CREATE TABLE IF NOT EXISTS bk_clicks(
       id SERIAL PRIMARY KEY,
       whatGotClicked VARCHAR(128) NOT NULL, 
       pageX INT NOT NULL, 
       pageY INT NOT NULL,
       dataId VARCHAR(128) NOT NULL,
       timestamp INT NOT NULL,
-      userId VARCHAR(128) NOT NULL 
-    ); 
-      `);
-    <!-- Receiving the request for information and sending a response to the front end  -->
-  app.post('/clicks', async (request, response) => {
+      userId VARCHAR(128) NOT NULL); 
+    `);
+          </code></pre>
+        </section>
+        <section>
+          <h1>CODE SAMPLE - CLICK TRACKING (2/3)</h1>
+          <pre><code lang="js">
+   /* Receiving the request for information and sending a response to the front end.*/  
+   app.post('/clicks', async (request, response) => {
       const {
-      whatGotClicked,
-      pageX,
-      pageY,
-      dataId,
-      timestamp,
-      userId,
-      } = request.body;
-  <!-- Adding the information to the the SQL table -->
-  await db.query(
-    `INSERT INTO clicks (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
-    [
-    whatGotClicked.slice(0, 128),
-    pageX,
-    pageY,
-    dataId,
-    timestamp,
-    Number(userId),
-    ]
+        whatGotClicked,
+        pageX,
+        pageY,
+        dataId,
+        timestamp,
+        userId,
+    } = request.body;
+
+     /* Inserting the requested data into the SQL table */
+    await db.query(
+      `INSERT INTO bk_clicks (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+      [whatGotClicked.slice(0, 128), pageX, pageY, dataId, timestamp, userId]
     );
   
-  response.json({ clicked: 'event' });
+    response.sendStatus(200);
   });
           </code></pre>
         </section>
+        <section>
+          <h1>CODE SAMPLE - CLICK TRACKING (3/3)</h1>
+          <p class="click-tracking">
+            Issuing the SQL query SELECT * FROM bk_clicks results in the
+            following table logging guest clicks
+            <img src="img/team_usa/sqlscreenshot.png" alt="sql screenshot" />
+          </p>
+        </section>
         <section
-          data-background-iframe="https://teamusa-bk-menu.herokuapp.com/"
+          data-background-iframe="https://team-usa-burger-king.herokuapp.com/"
           data-background-interactive
         ></section>
         <section>

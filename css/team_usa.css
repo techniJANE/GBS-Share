@@ -108,3 +108,8 @@ li {
   font-size: 24pt;
   margin: 1rem 0 0 0;
 }
+
+.click-tracking {
+  font-family: barlow;
+  font-size: 24pt;
+}
