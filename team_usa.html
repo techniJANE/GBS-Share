@@ -15,22 +15,23 @@
       href="/node_modules/reveal.js/plugin/highlight/monokai.css "
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/bkstyles.css" />
     <link rel="icon" href="img/favicon.png" />
   </head>
   <body>
     <div class="reveal">
-      <div class="slides">
+      <div class="slides" style="font-family: blockpro;">
         <section id="cover">
           <div id="logo-wrapper">
             <img src="img/logo.png" style="max-width: 25rem;" />
           </div>
         </section>
         <section>
-          <h1>Our Team Name</h1>
-          <h2>🇨🇦☕️🇺🇸🍔</h2>
+          <h1 style="font-family: blockpro;">Team USA!</h1>
+          <h2>🇺🇸🍔</h2>
         </section>
         <section>
-          <h2>const whoWeAre =</h2>
+          <h2 style="font-family: blockpro;">const whoWeAre =</h2>
           <ul>
             <li>{</li>
             <li>&nbsp;&nbsp;Andy: "Software Engineer",</li>
@@ -47,25 +48,38 @@
             <tbody>
               <tr>
                 <td>👨‍💻 Given...</td>
-                <td>Scenario goes here</td>
+                <td>a guest is on the main menu page</td>
               </tr>
               <tr>
                 <td>🤔 When...</td>
-                <td>Scenario goes here</td>
+                <td>they click on a desired menu category</td>
               </tr>
               <tr>
                 <td>✅ Then...</td>
-                <td>Scenario goes here</td>
+                <td>
+                  the specific category page will load showing filtered
+                  products, and the categories will transform into a carousel at
+                  the top of the page.
+                </td>
               </tr>
             </tbody>
           </table>
         </section>
         <section>
           <p>✏️ And write user stories...</p>
-          <h1>👩🏽‍💻 As a user,</h1>
-          <h2>🤔 When I am ...</h2>
-          <h3>💡 I would like to...</h3>
-          <h4>😁 So that I can...</h4>
+          <h1>👩🏽‍💻 As an rbi marketer,</h1>
+          <h2>
+            🤔 When I am engaging with the Burger King, Popeyes & Tim Hortons
+            apps
+          </h2>
+          <h3>
+            💡 I would like to understand which features of the app are clicked
+            on or engaged with most frequently
+          </h3>
+          <h4>
+            😁 So that I can optimize online offerings and ensure successful
+            targeting of future guests
+          </h4>
         </section>
         <section>
           <h1>What we built 👷‍♀️</h1>
@@ -83,7 +97,6 @@
             <li>🦾 JS</li>
             <li>☁️ GitHub</li>
             <li>🥞 SQL</li>
-            <li>💳 Stripe API</li>
           </ul>
           <p>
             Coordinate with the other team so you highlight different aspects of
@@ -91,21 +104,20 @@
           </p>
         </section>
         <section>
-          <h1>📓 Code Snippets</h1>
+          <h1>📓 Code Snippet - Carousel</h1>
           <pre><code lang="js">
             // This is an example code snippet
-            function renderCategory(category){
+            const renderCategory = category => {
               const html = `
                 <button class="category" data-category="${category.name}">
                   <img 
                     src="${category.primaryImage.asset.url}" 
                     alt="${category.name}"
-                    data-primaryimage="${category.primaryImage.asset.url}"
-                    data-carouselimage="${category.carouselImage.asset.url}"
+                    data-primaryimage="${category.primaryImage.asset.url}" 
+                    data-carouselimage="${category.carouselImage.asset.url}" 
                   />
-                  <span>${category.name}</span>
-                </button>
-              `
+                  <h2>${category.name}</h2>
+                </button>`
               const fragment = document.createRange().createContextualFragment(html)
               const button = fragment.querySelector('button')
               button.addEventListener('click', selectCategory)
