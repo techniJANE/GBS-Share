@@ -1,0 +1,33 @@
+/* BK FONT STYLING */
+
+@font-face {
+  font-family: blockpro;
+  src: url("../fonts/blockpropluscon-webfont.ttf");
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("../fonts/barlow-v4-latin-regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("../fonts/barlow-v4-latin-700.ttf");
+  font-weight: bold;
+}
+
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: blockpro;
+  text-transform: unset;
+}
+
+body {
+  font-family: barlow;
+}
