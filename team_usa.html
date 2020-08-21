@@ -66,21 +66,35 @@
           <h1>OUR BK MENU PROJECT</h1>
           <img id="bklogo" src="img/team_usa/logo.svg" />
         </section>
-
+        <section>
+          <video
+            controls
+            autoplay="autoplay"
+            muted
+            src="img/team_usa/BK Screen Recording.mov"
+            type="video/mov"
+          />
+        </section>
         <section>
           <h2>SCENARIO 1 - CATEGORIZING MENU PRODUCTS</h2>
           <table>
             <tbody>
               <tr>
-                <td>👨‍💻 GIVEN...</td>
+                <td style="font-family: blockpro;">
+                  👨‍💻 GIVEN...
+                </td>
                 <td>A guest is on the main menu</td>
               </tr>
               <tr>
-                <td>🤔 WHEN...</td>
+                <td style="font-family: blockpro;">
+                  🤔 WHEN...
+                </td>
                 <td>They click on a menu category</td>
               </tr>
               <tr>
-                <td>✅ THEN...</td>
+                <td style="font-family: blockpro;">
+                  ✅ THEN...
+                </td>
                 <td>
                   The page will only show products from that category
                 </td>
@@ -93,15 +107,21 @@
           <table>
             <tbody>
               <tr>
-                <td>👨‍💻 GIVEN...</td>
+                <td style="font-family: blockpro;">
+                  👨‍💻 GIVEN...
+                </td>
                 <td>A guest is on the main menu</td>
               </tr>
               <tr>
-                <td>🤔 WHEN...</td>
+                <td style="font-family: blockpro;">
+                  🤔 WHEN...
+                </td>
                 <td>They click on a menu category</td>
               </tr>
               <tr>
-                <td>✅ THEN...</td>
+                <td style="font-family: blockpro;">
+                  ✅ THEN...
+                </td>
                 <td>
                   The categories will transform into a carousel at the top of
                   the page
@@ -143,7 +163,6 @@
           <h1>CODE SAMPLE - CAROUSEL (2/3)</h1>
           <pre><code lang="js">
    /* The selectCategory function adds the carousel feature and filters products by the guest's selected category */
-
    const selectCategory = event => {
         menuHeroText.classList.add('hidden');
         categoriesSection.classList.add('carousel');
@@ -168,36 +187,31 @@
         <section>
           <h1>CODE SAMPLE - CAROUSEL (3/3)</h1>
           <pre><code lang="js">
-
-   /* The unselectCategory function removes the carousel feature and brings us back to the overall list of categories*/
-            
+   /* The unselectCategory function removes the carousel feature and brings us back to the overall list of categories*/      
    const unselectCategory = () => {
-    menuHeroText.classList.remove('hidden');
-    categoriesSection.classList.remove('carousel');
-    const allCategories = document.querySelectorAll('.category');
-    allCategories.forEach(category => {
-      category.classList.remove('selected');
-      const img = category.querySelector('img');
-      img.src = img.dataset.primaryimage;
-    });
-    productsSection.innerHTML = '';
+      menuHeroText.classList.remove('hidden');
+      categoriesSection.classList.remove('carousel');
+      const allCategories = document.querySelectorAll('.category');
+      allCategories.forEach(category => {
+        category.classList.remove('selected');
+        const img = category.querySelector('img');
+        img.src = img.dataset.primaryimage;
+      });
+      productsSection.innerHTML = '';
   };          
           </code></pre>
         </section>
         <section><h1>WRITING & EXECUTING USER STORIES</h1></section>
         <section class="user-stories">
           <h2>CLICK TRACKING EXAMPLE</h2>
-          <p>👩🏽‍💻 <em>As an </em> RBI marketer,</p>
+          <p>👩🏽‍💻 <em style="font-family: blockpro;" >AS AN </em> RBI marketer,</p>
+          <p>🤔 <em style="font-family: blockpro;">WHEN I AM </em> analyzing the Burger King app</p>
           <p>
-            🤔 <em>When I am </em> analyzing the Burger King, Popeyes or Tim
-            Hortons apps
+            💡 <em style="font-family: blockpro;">I WOULD LIKE TO </em> understand which features are clicked
+            most frequently by guests
           </p>
           <p>
-            💡 <em>I would like to</em> understand which features are clicked on
-            or engaged with most frequently by guests
-          </p>
-          <p>
-            😁 <em>So that I can</em> optimize online offerings and ensure
+            😁 <em style="font-family: blockpro;">SO THAT I CAN </em> optimize online offerings and ensure
             successful targeting of future guests
           </p>
         </section>
@@ -207,9 +221,7 @@
         <section>
           <h1>CODE SAMPLE - CLICK TRACKING (1/3)</h1>
           <pre><code lang="js">
-
-      /* Creating the table in SQL */
-  
+      /* Creating the table in SQL */ 
     db.query(`
       CREATE TABLE IF NOT EXISTS bk_clicks(
       id SERIAL PRIMARY KEY,
@@ -235,13 +247,11 @@
         timestamp,
         userId,
     } = request.body;
-
      /* Inserting the requested data into the SQL table */
     await db.query(
       `INSERT INTO bk_clicks (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
       [whatGotClicked.slice(0, 128), pageX, pageY, dataId, timestamp, userId]
     );
-  
     response.sendStatus(200);
   });
           </code></pre>
@@ -249,75 +259,101 @@
         <section>
           <h1>CODE SAMPLE - CLICK TRACKING (3/3)</h1>
           <p class="click-tracking">
-            Issuing the SQL query SELECT * FROM bk_clicks results in the
-            following table logging guest clicks
-            <img src="img/team_usa/sqlscreenshot.png" alt="sql screenshot" />
+            <h2>SELECT * FROM bk_clicks;</h2>
+              <img src="img/team_usa/sqlscreenshot.png" alt="sql screenshot"/> 
           </p>
         </section>
         <section>
           <h1>TECHNOLOGIES USED</h1>
           <ul class="tech-used">
             <li>
-              ✏️ HTML: Used to build out skeleton structure of our webpage
+              ✏️ HTML: webpage skeleton
             </li>
-            <li>🎨 CSS: Used to style and format features</li>
-            <li>🦾 JS: Used to create functionality and dynamism</li>
+            <li>🎨 CSS: styling</li>
+            <li>🦾 JS:functionality</li>
+            <li>📌EXPRESS: API</li>
+            <li>🥞 SQL: user data insights</li>
+            <li>🧠SANITY: Content Management System</li>
             <li>
-              ☁️ GitHub: Used to collaborate via branches and share our code
-            </li>
-            <li>🥞 SQL: Used to glean insights from user data</li>
-            <li>
-              🧠SANITY: Content Management System used to store images & data
-              much like a back-end server
+              📈 GRAPHQL: SANITY query language
             </li>
             <li>
-              📈 GRAPHQL: Query language for our API
+              💳 STRIPE: Payment platform
             </li>
             <li>
-              💳 STRIPE: Payment platform used to store our products & prices
+              👩🏻‍💻 Heroku: Hosting platform
+            </li>
+            <li>
+              ☁️ GitHub: Collaboration
             </li>
           </ul>
         </section>
         <section>
           <h1>TEAM USA KEY FOCUS AREAS</h1>
-          <ul class="focus-areas">
-            <li>SARA: Cart functionality & CSS stylista</li>
-            <li>PATRICK: Click tracking SQL implementation & Stripe chief</li>
-            <li>ALEXANDRA: Sanity specialist & GraphQL querier</li>
-            <li>ALEXIS: Carousel king & Data wizard</li>
-            <li>PAULA: Heroku heroine & Data wizard</li>
-          </ul>
+          <div class="meet-the-team">
+            <div class="team-member">
+              <img src="img/team_usa/alexandra.jpg" alt="Alexandra" />
+              <span class="name">Sanity specialist</span>
+              <span class="role">GraphQL querier</span>
+            </div>
+            <div class="team-member">
+              <img src="img/team_usa/sara.png" alt="Sara" />
+              <span class="name">Cart functionality</span>
+              <span class="role">CSS stylista</span>
+            </div>
+            <div class="team-member">
+              <img src="img/team_usa/alexis.jpg" alt="Alexis" />
+              <span class="name">Carousel king </span>
+              <span class="role">Data wizard</span>
+            </div>
+            <div class="team-member">
+              <img src="img/team_usa/patrick.png" alt="Patrick" />
+              <span class="name">Click tracking SQL</span>
+              <span class="role">Stripe chief</span>
+            </div>
+            <div class="team-member">
+              <img src="img/team_usa/paula.jpg" alt="Paula" />
+              <span class="name">Heroku heroine</span>
+              <span class="role"> Data wizard</span>
+            </div>
+          </div>
         </section>
         <section>
+          <img id = "keylogo" src = "img/logo.png" alt="rbilogo"/>
           <h1>KEY TAKEAWAYS</h1>
           <p>
-            Through RBI Tech Bootcamp, we have gained and will bring forward:
+            Through RBI Tech Bootcamp, we have gained a greater understanding of:
           </p>
           <ul class="keytakeaways-list">
-            <li>
-              A greater understanding of the instrinsic tie between software
+            <li>The instrinsic tie between software
               engineering and the success of our brands.
             </li>
             <li>
-              More robust & creative thinking regarding customer data capture.
+              Customer data capture.
             </li>
             <li>
-              The ability to collaborate more effectively with our development
-              team to generate results.
+              Utilizing and implementing code
             </li>
             <li>
-              Confidence around utilizing and implementing code on our own
-              projects and analysis (i.e. SANITY, SQL, GRAPHQL, etc.)
+              Effective collaboration with our development team
             </li>
+
           </ul>
         </section>
         <section>
+          <img id = "teampic" src = "img/team_usa/teampic.png"/>
           <h1>THANK YOU</h1>
           <h2>
-            to Andy, Laz, Shaila, Tommy & Frank for this amazing experience over
-            the past 4 weeks!
+            to Andy, Laz, Shaila, Tommy & Frank 
           </h2>
+          <h3>for this amazing experience over
+            the past 4 weeks!</h3>
           <h2>We welcome any questions!</h2>
+        </section>
+        <section>
+          <a href = "http://team-usa-burger-king.herokuapp.com/">Link to our Project on Heroku</a>
+          <br>
+          <img id="bklogo" src="img/team_usa/logo.svg" />
         </section>
       </div>
     </div>
