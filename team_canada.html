@@ -189,32 +189,114 @@
             what you built
           </p>
         </section>
-        <section>
-          <h1>📓 Code Snippets</h1>
+        <section class="code-snippet">
+          <h1>📓 Sanity Integration</h1>
           <pre><code lang="js">
-            // This is an example code snippet
-            function renderCategory(category){
-              const html = `
-                <button class="category" data-category="${category.name}">
-                  <img 
-                    src="${category.primaryImage.asset.url}" 
-                    alt="${category.name}"
-                    data-primaryimage="${category.primaryImage.asset.url}"
-                    data-carouselimage="${category.carouselImage.asset.url}"
-                  />
-                  <span>${category.name}</span>
-                </button>
-              `
-              const fragment = document.createRange().createContextualFragment(html)
-              const button = fragment.querySelector('button')
-              button.addEventListener('click', selectCategory)
-              return fragment
+            async function initialPageLoad() {
+              await fetchSanityData();
+              bagIcon.src = sanityData.allOverallSiteSettings[0].bagIcon.asset.url;
+              bagIcon.classList.remove('hidden');
+              headerLogo.src = sanityData.allOverallSiteSettings[0].logo.asset.url;
+              headerLogo.classList.remove('hidden');
+              categoryName.textContent = sanityData.allOverallSiteSettings[0].menuHero;
+              const fragments = sanityData.allCategory
+                .sort((a, b) => a.sortOrder - b.sortOrder)
+                .map(renderCategory);
+              categoriesSection.innerHTML = '';
+              categoriesSection.prepend(...fragments);
             }
           </code></pre>
-          <p>
-            Coordinate with the other team so you highlight different aspects of
-            what you built
-          </p>
+        </section>
+        <section class="code-snippet">
+          <h1>📓 Rendering the Cart</h1>
+          <pre><code lang="js">
+            function addToCart(event) {
+              const theButtonThatGotClicked = event.currentTarget;
+              const priceId = theButtonThatGotClicked.closest('[data-priceid]').dataset
+                .priceid;
+              if (cart[priceId]) {
+                cart[priceId] += 1;
+              } else {
+                cart[priceId] = 1;
+              }
+              renderCart();
+              totalItemCount();
+              checkoutButton.disabled = false;
+            }
+          </code></pre>
+        </section>
+        <section class="code-snippet">
+          <h1>📓 Cart Functionality</h1>
+          <pre><code lang="js">
+            function renderCart() {
+              cartDialog.open = true;
+              const priceIds = Object.keys(cart);
+              const lineItems = priceIds.map(renderLineItem);
+              lineItemsList.innerHTML = '';
+              lineItemsList.prepend(...lineItems);
+              if (priceIds.length > 0) {
+                checkoutButton.disabled = false;
+              } else {
+                lineItemsList.innerHTML = `<li>Nothing in Cart</li>`;
+                checkoutButton.disabled = true;
+              }
+            };
+
+            function totalItemCount() {
+              const itemCountList = Object.values(cart).reduce((a, b) => a + b, 0);
+              cartNumber.textContent = itemCountList;
+              const totalCartCents = Object.keys(cart).reduce((total,priceid)=> {
+                const product = products.find(product => product.price_id === priceid);
+                return total+(cart[priceid]*product.price_cents)
+              },0);
+              checkoutButton.textContent = `Checkout CAD$ ${totalCartCents/100}`;
+            }
+          </code></pre>
+        </section>
+        <section class="code-snippet">
+          <h1>📓 Front-end checkout</h1>
+          <pre><code lang="js">
+            const stripe = Stripe('pk_test_notARealKey12345677890abcdefg');
+
+            const checkout = async () => {
+              const response = await fetch('/checkout', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json',
+                },
+                body: JSON.stringify({ cart }),
+              });
+              const data = await response.json();
+              stripe.redirectToCheckout({
+                sessionId: data.session_id,
+              });
+            };
+          </code></pre>
+        </section>
+        <section class="code-snippet">
+          <h1>📓 Back-end checkout</h1>
+          <pre><code lang="js">
+            const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+            const app = express();
+            app.use(express.json());
+            app.use(express.static('public'));
+            app.post('/checkout', async (request, response) => {
+              const { cart } = request.body;
+              const lineItems = Object.keys(cart).map(priceId => ({
+                price: priceId,
+                quantity: cart[priceId],
+              }));
+              const session = await stripe.checkout.sessions.create({
+                payment_method_types: ['card'],
+                line_items: lineItems,
+                mode: 'payment',
+                success_url: ROOT_URL,
+                cancel_url: ROOT_URL,
+              });
+              response.json({ session_id: session.id });
+            });
+          </code></pre>
         </section>
         <section id="contribute">
           <h2>Project Execution</h2>
