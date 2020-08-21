@@ -83,11 +83,7 @@
               </tr>
             </tbody>
           </table>
-          <video controls autoplay mute>
-            <source
-              src="./img/team_canada/incrementcart.mov"
-              type="video/mp4"
-            />
+          <video controls autoplay muted loop src="./img/team_canada/incrementcart.mov" type="video/mp4"/>
           </video>
         </section>
         <section id="page4">
@@ -114,8 +110,7 @@
               </tr>
             </tbody>
           </table>
-          <video controls autoplay mute>
-            <source src="./img/team_canada/checkout.mov" type="video/mp4" />
+          <video controls autoplay muted loop src="./img/team_canada/checkout.mov" type="video/mp4"/>
           </video>
         </section>
         <section id="website">
@@ -174,7 +169,7 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h2>📓 Checkout total</h2>
+          <h2>📓 Checkout Total</h2>
           <pre><code lang="js">
             function totalItemCount() {
               const itemCountList = Object.values(cart).reduce((a, b) => a + b, 0);
@@ -188,7 +183,7 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h2>📓 Front-end checkout</h2>
+          <h2>📓 Front-End Checkout</h2>
           <pre><code lang="js">
             const stripe = Stripe('pk_test_notARealKey12345677890abcdefg');
 
@@ -209,7 +204,7 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h2>📓 Back-end checkout</h2>
+          <h2>📓 Back-End Checkout</h2>
           <pre><code lang="js">
             const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
             const app = express();
@@ -237,7 +232,7 @@
             <div class="team-member">
               <img src="img/team_canada/Daniyal.png" alt="Daniyal" />
               <span class="name">Daniyal Naqvi</span>
-              <span class="did">HTML, CSS & <br />Backend JS</span>
+              <span class="did">HTML, CSS & <br />Back-End JS</span>
             </div>
             <div class="team-member">
               <img src="img/team_canada/Suhan.JPG" alt="Suhan" />
@@ -257,14 +252,14 @@
             <div class="team-member">
               <img src="img/team_canada/Alex.jpeg" alt="Alex" />
               <span class="name">Alexandra Krolak</span>
-              <span class="did">HTML,CSS & <br />Frontend JS</span>
+              <span class="did">HTML,CSS & <br />Front-End JS</span>
             </div>
           </div>
         </section>
-        <section id="key">
+        <section id="tech">
           <h2>Key Takeaways 🔑</h2>
 
-          <ul class="keytakeaways-list">
+          <ul>
             <li>
               📈 Gathering Analytics through click-tracking
             </li>
