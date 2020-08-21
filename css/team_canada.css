@@ -102,10 +102,13 @@ body {
   left: 10rem;
 }
 
-#category {
+.category {
   font-family: sofia_bold;
+  width: 11rem;
+  vertical-align: middle;
 }
-#page5 #category {
+
+#page5 .category {
   font-family: sofia_bold;
 }
 #page3,
