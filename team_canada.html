@@ -20,14 +20,7 @@
   </head>
   <body>
     <div class="reveal">
-      <div
-        class="slides"
-        style="
-          background-image: url('./img/team_canada/background.png');
-          background-size: cover;
-          background-repeat: no-repeat;
-        "
-      >
+      <div class="slides">
         <section id="cover">
           <div id="logo-wrapper">
             <img src="img/logo.png" style="max-width: 25rem;" />
@@ -85,11 +78,17 @@
               <tr>
                 <td class="category">✅ Then</td>
                 <td>
-                  the items quantity in the cart should be incremented by one
+                  increment the cart quantity by one
                 </td>
               </tr>
             </tbody>
           </table>
+          <video controls autoplay mute>
+            <source
+              src="./img/team_canada/incrementcart.mov"
+              type="video/mp4"
+            />
+          </video>
         </section>
         <section id="page4">
           <h2 id="subject">User Story</h2>
@@ -97,71 +96,27 @@
             <tbody>
               <tr>
                 <td class="category">👨‍💻 Given</td>
-                <td>the user wants to checkout and proceed to payment</td>
+                <td>the user wants to checkout</td>
               </tr>
               <tr>
                 <td class="category">
                   🤔 When
                 </td>
                 <td>
-                  the user clicks on "checkout" within the cart
+                  the user clicks on the checkout button
                 </td>
               </tr>
               <tr>
                 <td class="category">✅ Then</td>
                 <td>
-                  the user will be redirected to the stripe payment platform,
-                  where the user can provide their payment information
+                  redirect user to the payment platform
                 </td>
               </tr>
             </tbody>
           </table>
-        </section>
-        <section id="page5">
-          <h2 id="subject">User Story</h2>
-          <table class="tables" style="padding: 0;">
-            <tbody>
-              <tr style="padding: 0;">
-                <td class="category">👨‍💻 Given</td>
-                <td>
-                  the user is viewing a specific category
-                </td>
-              </tr>
-              <tr>
-                <td class="category">
-                  🤔 When
-                </td>
-                <td>
-                  they click the main menu button
-                </td>
-              </tr>
-              <tr>
-                <td class="category">✅ Then</td>
-                <td>
-                  they should be redirected to the main menu
-                </td>
-              </tr>
-              <tr>
-                <td class="category">💪 And</td>
-                <td>
-                  I will be redirected to the main menu where the user can view
-                  all the product categories
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section id="user">
-          <h2>👩🏽‍💻 As a Tim Hortons Guest</h2>
-          <h3>
-            🤔 When I click the "checkout" button
-          </h3>
-          <h3>
-            💡 I would like to be redirected to a payment screen
-          </h3>
-          <h4>
-            😁 so that I can complete my transaction
-          </h4>
+          <video controls autoplay mute>
+            <source src="./img/team_canada/checkout.mov" type="video/mp4" />
+          </video>
         </section>
         <section id="website">
           <h2>Our Tim Hortons Website ☕️</h2>
@@ -177,13 +132,13 @@
             <li>🦾 JavaScript</li>
             <li>🥞 SQL</li>
             <li>💳 Stripe API</li>
-            <li>📈 Graph QL</li>
+            <li>📈 GraphQL</li>
             <li>📬 Postman</li>
             <li>🤙🏻 Heroku</li>
           </ul>
         </section>
         <section class="code-snippet">
-          <h1>📓 Sanity Integration</h1>
+          <h2>📓 Sanity Integration</h2>
           <pre><code lang="js">
             async function initialPageLoad() {
               await fetchSanityData();
@@ -201,7 +156,7 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h1>📓 Rendering the Cart</h1>
+          <h2>📓 Add to Cart</h2>
           <pre><code lang="js">
             function addToCart(event) {
               const theButtonThatGotClicked = event.currentTarget;
@@ -219,22 +174,8 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h1>📓 Cart Functionality</h1>
+          <h2>📓 Checkout total</h2>
           <pre><code lang="js">
-            function renderCart() {
-              cartDialog.open = true;
-              const priceIds = Object.keys(cart);
-              const lineItems = priceIds.map(renderLineItem);
-              lineItemsList.innerHTML = '';
-              lineItemsList.prepend(...lineItems);
-              if (priceIds.length > 0) {
-                checkoutButton.disabled = false;
-              } else {
-                lineItemsList.innerHTML = `<li>Nothing in Cart</li>`;
-                checkoutButton.disabled = true;
-              }
-            };
-
             function totalItemCount() {
               const itemCountList = Object.values(cart).reduce((a, b) => a + b, 0);
               cartNumber.textContent = itemCountList;
@@ -247,7 +188,7 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h1>📓 Front-end checkout</h1>
+          <h2>📓 Front-end checkout</h2>
           <pre><code lang="js">
             const stripe = Stripe('pk_test_notARealKey12345677890abcdefg');
 
@@ -268,12 +209,11 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h1>📓 Back-end checkout</h1>
+          <h2>📓 Back-end checkout</h2>
           <pre><code lang="js">
             const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
             const app = express();
-            app.use(express.json());
-            app.use(express.static('public'));
+            
             app.post('/checkout', async (request, response) => {
               const { cart } = request.body;
               const lineItems = Object.keys(cart).map(priceId => ({
@@ -326,27 +266,26 @@
 
           <ul class="keytakeaways-list">
             <li>
-              Importance of gathering analytics inorder to make informed
-              decisions (click tracking)
+              📈 Gathering Analytics through click-tracking
             </li>
             <li>
-              Ensuring frontend & backend interaction provides seamless user
-              experience
+              🤝 Front-end and back-end interactions for user experience
             </li>
             <li>
-              Develop workflow management through collaborative Github sessions
+              👾 Workflow management using Github
             </li>
             <li>
-              Leverage external APIs to broaden user functionality
+              🖥 Integrate external APIs to broaden user functionality
             </li>
             <li>
-              Identify code errors and implement effective debug strategies
+              🐞 Identify errors and debug
             </li>
             <li>
-              Understanding interdependancy of different programming languages
+              🕸 Interdependency between HTML, CSS, SQL, and JavaScript
             </li>
           </ul>
         </section>
+        <section id="outro"></section>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.16.1/dist/tsparticles.min.js"></script>
