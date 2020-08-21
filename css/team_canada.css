@@ -38,8 +38,9 @@ body {
   color: whitesmoke;
   margin: 0;
 }
-.code-snippet h1 {
-  font-size: 2rem;
+.code-snippet h2 {
+  font-family: greasepencil;
+  color: rgb(200, 16, 46);
 }
 
 code {
@@ -90,10 +91,8 @@ code {
 }
 
 #page2 {
-  width: 80rem;
   display: flex;
   align-items: center;
-  left: 10rem;
 }
 
 #page2 h2 {
@@ -180,7 +179,7 @@ code {
 }
 .keytakeaways-list li {
   margin: 0;
-  list-style: square;
+  list-style-type: none;
 }
 
 .name {
