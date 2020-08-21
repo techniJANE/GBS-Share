@@ -66,16 +66,17 @@
             </div>
           </div>
         </section>
+        <section id="example"></section>
         <section id="page3">
-          <h2 id="subject">User Narrative</h2>
+          <h2 id="subject">User Story</h2>
           <table>
             <tbody>
               <tr>
-                <td id="category">👨‍💻 Given</td>
+                <td class="category">👨‍💻 Given</td>
                 <td>the user is viewing a menu item</td>
               </tr>
               <tr>
-                <td id="category">
+                <td class="category">
                   🤔 When
                 </td>
                 <td>
@@ -83,7 +84,7 @@
                 </td>
               </tr>
               <tr>
-                <td id="category">✅ Then</td>
+                <td class="category">✅ Then</td>
                 <td>
                   the items quantity in the cart should be incremented by one
                 </td>
@@ -92,15 +93,15 @@
           </table>
         </section>
         <section id="page4">
-          <h2 id="subject">User Narrative</h2>
+          <h2 id="subject">User Story</h2>
           <table>
             <tbody>
               <tr>
-                <td id="category">👨‍💻 Given</td>
+                <td class="category">👨‍💻 Given</td>
                 <td>the user wants to checkout and proceed to payment</td>
               </tr>
               <tr>
-                <td id="category">
+                <td class="category">
                   🤔 When
                 </td>
                 <td>
@@ -108,7 +109,7 @@
                 </td>
               </tr>
               <tr>
-                <td id="category">✅ Then</td>
+                <td class="category">✅ Then</td>
                 <td>
                   the user will be redirected to the stripe payment platform,
                   where the user can provide their payment information
@@ -118,17 +119,17 @@
           </table>
         </section>
         <section id="page5">
-          <h2 id="subject">User Narrative</h2>
-          <table>
+          <h2 id="subject">User Story</h2>
+          <table class="tables" style="padding: 0;">
             <tbody>
-              <tr>
-                <td id="category">👨‍💻 Given</td>
+              <tr style="padding: 0;">
+                <td class="category">👨‍💻 Given</td>
                 <td>
                   the user is viewing a specific category
                 </td>
               </tr>
               <tr>
-                <td id="category">
+                <td class="category">
                   🤔 When
                 </td>
                 <td>
@@ -136,23 +137,23 @@
                 </td>
               </tr>
               <tr>
-                <td id="category">✅ Then</td>
+                <td class="category">✅ Then</td>
                 <td>
                   they should be redirected to the main menu
                 </td>
               </tr>
               <tr>
-                <td id="category">💪 And</td>
+                <td class="category">💪 And</td>
                 <td>
-                  ill be redirected to the main menu where the user can view all
-                  the product categories
+                  I will be redirected to the main menu where the user can view
+                  all the product categories
                 </td>
               </tr>
             </tbody>
           </table>
         </section>
         <section id="user">
-          <h2>👩🏽‍💻 As a Tim Hortons Customer</h2>
+          <h2>👩🏽‍💻 As a Tim Hortons Guest</h2>
           <h3>
             🤔 When I click the "checkout" button
           </h3>
@@ -163,34 +164,28 @@
             😁 so that I can complete my transaction
           </h4>
         </section>
-        <section>
-          <h1>What we built 👷‍♀️</h1>
+        <section id="website">
+          <h2>Our Tim Hortons Website ☕️</h2>
         </section>
-        <!-- Replace with your Heroku Site -->
         <section
-          data-background-iframe="//stripe-store-demo.herokuapp.com"
+          id="iframe"
+          data-background-iframe="//team-canada-timhortons.herokuapp.com"
           data-background-interactive
         ></section>
-        <section>
-          <h1>🏗 Technologies Used</h1>
+        <section id="tech">
+          <h2>Technologies Used</h2>
           <ul>
-            <li>✏️ HTML</li>
-            <li>🎨 CSS</li>
-            <li>🦾 JS</li>
-            <li>☁️ GitHub</li>
+            <li>✏️ HTML & CSS</li>
+            <li>🦾 JavaScript</li>
             <li>🥞 SQL</li>
             <li>💳 Stripe API</li>
             <li>📈 Graph QL</li>
             <li>📬 Postman</li>
             <li>🤙🏻 Heroku</li>
           </ul>
-          <p>
-            Coordinate with the other team so you highlight different aspects of
-            what you built
-          </p>
         </section>
-        <section>
-          <h1>📓 Code Snippets</h1>
+        <section id="code">
+          <h2>📓 Code Snippets</h2>
           <pre><code lang="js">
             // This is an example code snippet
             function renderCategory(category){
@@ -211,10 +206,6 @@
               return fragment
             }
           </code></pre>
-          <p>
-            Coordinate with the other team so you highlight different aspects of
-            what you built
-          </p>
         </section>
         <section id="contribute">
           <h2>Project Execution</h2>
@@ -222,62 +213,55 @@
             <div class="team-member">
               <img src="img/team_canada/Daniyal.png" alt="Daniyal" />
               <span class="name">Daniyal Naqvi</span>
-              <span class="did">blah</span>
+              <span class="did">HTML, CSS & <br />Backend JS</span>
             </div>
             <div class="team-member">
               <img src="img/team_canada/Suhan.JPG" alt="Suhan" />
               <span class="name">Suhan Li</span>
-              <span class="did">blah</span>
+              <span class="did">Cart & Click <br />Functionality</span>
             </div>
             <div class="team-member">
               <img src="img/team_canada/Jane.jpg" alt="Jane" />
               <span class="name">Jane Meng</span>
-              <span class="did">blah</span>
+              <span class="did">Checkout <br />Functionality & Sanity</span>
             </div>
             <div class="team-member">
               <img src="img/team_canada/Jehan.jpg" alt="Jehan" />
               <span class="name">Jehan Ghandhy</span>
-              <span class="did">blah</span>
+              <span class="did">HTML & CSS</span>
             </div>
             <div class="team-member">
               <img src="img/team_canada/Alex.jpeg" alt="Alex" />
               <span class="name">Alexandra Krolak</span>
-              <span class="did">blah</span>
+              <span class="did">HTML,CSS & <br />Frontend JS</span>
             </div>
           </div>
         </section>
         <section id="key">
           <h2>Key Takeaways 🔑</h2>
-          <p>
-            How might you use these skills in your next role?
-          </p>
-          <div class="team">
-            <div class="team-member">
-              <img src="img/team_canada/Daniyal.png" alt="Daniyal" />
-              <span class="name">Daniyal Naqvi</span>
-              <span class="takeaway">blahs</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Suhan.JPG" alt="Suhan" />
-              <span class="name">Suhan Li</span>
-              <span class="takeaway">blahs</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jane.jpg" alt="Jane" />
-              <span class="name">Jane Meng</span>
-              <span class="takeaway">blahs</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jehan.jpg" alt="Jehan" />
-              <span class="name">Jehan Ghandhy</span>
-              <span class="takeaway">blahs</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Alex.jpeg" alt="Alex" />
-              <span class="name">Alexandra Krolak</span>
-              <span class="takeaway">blahs</span>
-            </div>
-          </div>
+
+          <ul class="keytakeaways-list">
+            <li>
+              Importance of gathering analytics inorder to make informed
+              decisions (click tracking)
+            </li>
+            <li>
+              Ensuring frontend & backend interaction provides seamless user
+              experience
+            </li>
+            <li>
+              Develop workflow management through collaborative Github sessions
+            </li>
+            <li>
+              Leverage external APIs to broaden user functionality
+            </li>
+            <li>
+              Identify code errors and implement effective debug strategies
+            </li>
+            <li>
+              Understanding interdependancy of different programming languages
+            </li>
+          </ul>
         </section>
       </div>
     </div>

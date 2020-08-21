@@ -102,18 +102,24 @@ body {
   left: 10rem;
 }
 
-#category {
+.category {
   font-family: sofia_bold;
+  width: 11rem;
 }
-#page5 #category {
+#page5 .category {
   font-family: sofia_bold;
 }
 #page3,
 #page4,
 #page5 td {
   font-family: sofia_light;
+  padding-bottom: 0;
+  align-items: center;
 }
 
+.tables td {
+  padding: 0;
+}
 #subject {
   font-family: greasepencil;
   color: rgb(200, 16, 46);
@@ -131,4 +137,47 @@ body {
 #key h2 {
   font-family: greasepencil;
   color: rgb(200, 16, 46);
+}
+
+#website h2 {
+  font-family: greasepencil;
+  color: rgb(200, 16, 46);
+}
+
+#iframe {
+  z-index: 10;
+}
+
+#tech h2 {
+  font-family: greasepencil;
+  color: rgb(200, 16, 46);
+}
+
+#tech li {
+  font-family: sofia_light;
+}
+
+#code h2 {
+  font-family: greasepencil;
+  color: rgb(200, 16, 46);
+}
+
+.keytakeaways-list {
+  font-family: sofia_light;
+  font-size: 20pt;
+  margin: 0 0 0 5rem;
+  max-width: 80rem;
+}
+.keytakeaways-list li {
+  margin: 0;
+  list-style: square;
+}
+
+.name {
+  font-family: sofia_bold;
+}
+
+.did {
+  font-family: sofia_light;
+  text-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.4);
 }
