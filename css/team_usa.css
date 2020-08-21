@@ -78,9 +78,13 @@ tbody {
 .user-stories p {
   font-family: barlow;
   font-size: 24pt;
-  text-align: left;
+  text-align: center;
   margin: 0 0 0 2rem;
   padding: 1rem;
+}
+
+.tech-used li {
+  font-family: barlow;
 }
 
 .keytakeaways-list {
@@ -112,4 +116,15 @@ li {
 .click-tracking {
   font-family: barlow;
   font-size: 24pt;
+}
+
+#keylogo {
+  width: 300px;
+
+  object-fit: cover;
+}
+
+#teampic {
+  width: 1000px;
+  object-fit: cover;
 }
