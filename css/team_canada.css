@@ -190,3 +190,14 @@ code {
   font-family: sofia_light;
   text-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.4);
 }
+
+#outro h2 {
+  font-family: greasepencil;
+  color: rgb(200, 16, 46);
+  font-size: 4rem;
+}
+
+#outro h2 a {
+  text-decoration: none;
+  color: gray;
+}
