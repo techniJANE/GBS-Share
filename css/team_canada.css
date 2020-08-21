@@ -38,6 +38,14 @@ body {
   color: whitesmoke;
   margin: 0;
 }
+.code-snippet h1 {
+  font-size: 2rem;
+}
+
+code {
+  font-size: 1rem;
+  line-height: normal;
+}
 #user p {
   font-size: 2.5rem;
   font-family: sofia_regular;
@@ -105,7 +113,9 @@ body {
 .category {
   font-family: sofia_bold;
   width: 11rem;
+  vertical-align: middle;
 }
+
 #page5 .category {
   font-family: sofia_bold;
 }
