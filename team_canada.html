@@ -26,39 +26,6 @@
             <img src="img/logo.png" style="max-width: 25rem;" />
           </div>
         </section>
-        <section>
-          <div id="canada"><h1>Team Canada</h1></div>
-        </section>
-        <section id="page2">
-          <h2>The Eh Team</h2>
-          <div class="team">
-            <div class="team-member">
-              <img src="img/team_canada/Daniyal.png" alt="Daniyal" />
-              <span class="name">Daniyal Naqvi</span>
-              <span class="role">Manager, Global Business Services</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Suhan.JPG" alt="Suhan" />
-              <span class="name">Suhan Li</span>
-              <span class="role">Senior Manager, LDP</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jane.jpg" alt="Jane" />
-              <span class="name">Jane Meng</span>
-              <span class="role">Analyst, Global Business Services</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jehan.jpg" alt="Jehan" />
-              <span class="name">Jehan Ghandhy</span>
-              <span class="role">Manager, Franchise Performance</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Alex.jpeg" alt="Alex" />
-              <span class="name">Alexandra Krolak</span>
-              <span class="role">Senior Manager, Loyalty</span>
-            </div>
-          </div>
-        </section>
         <section id="page3">
           <h2 id="subject">User Story</h2>
           <table>
@@ -133,24 +100,6 @@
           </ul>
         </section>
         <section class="code-snippet">
-          <h2>📓 Sanity Integration</h2>
-          <pre><code lang="js">
-            async function initialPageLoad() {
-              await fetchSanityData();
-              bagIcon.src = sanityData.allOverallSiteSettings[0].bagIcon.asset.url;
-              bagIcon.classList.remove('hidden');
-              headerLogo.src = sanityData.allOverallSiteSettings[0].logo.asset.url;
-              headerLogo.classList.remove('hidden');
-              categoryName.textContent = sanityData.allOverallSiteSettings[0].menuHero;
-              const fragments = sanityData.allCategory
-                .sort((a, b) => a.sortOrder - b.sortOrder)
-                .map(renderCategory);
-              categoriesSection.innerHTML = '';
-              categoriesSection.prepend(...fragments);
-            }
-          </code></pre>
-        </section>
-        <section class="code-snippet">
           <h2>📓 Add to Cart</h2>
           <pre><code lang="js">
             function addToCart(event) {
@@ -183,27 +132,6 @@
           </code></pre>
         </section>
         <section class="code-snippet">
-          <h2>📓 Front-End Checkout</h2>
-          <pre><code lang="js">
-            const stripe = Stripe('pk_test_notARealKey12345677890abcdefg');
-
-            const checkout = async () => {
-              const response = await fetch('/checkout', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Accept: 'application/json',
-                },
-                body: JSON.stringify({ cart }),
-              });
-              const data = await response.json();
-              stripe.redirectToCheckout({
-                sessionId: data.session_id,
-              });
-            };
-          </code></pre>
-        </section>
-        <section class="code-snippet">
           <h2>📓 Back-End Checkout</h2>
           <pre><code lang="js">
             const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -225,36 +153,6 @@
               response.json({ session_id: session.id });
             });
           </code></pre>
-        </section>
-        <section id="contribute">
-          <h2>Project Execution</h2>
-          <div class="team">
-            <div class="team-member">
-              <img src="img/team_canada/Daniyal.png" alt="Daniyal" />
-              <span class="name">Daniyal Naqvi</span>
-              <span class="did">HTML, CSS & <br />Back-End JS</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Suhan.JPG" alt="Suhan" />
-              <span class="name">Suhan Li</span>
-              <span class="did">Cart & Click <br />Functionality</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jane.jpg" alt="Jane" />
-              <span class="name">Jane Meng</span>
-              <span class="did">Checkout <br />Functionality & Sanity</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Jehan.jpg" alt="Jehan" />
-              <span class="name">Jehan Ghandhy</span>
-              <span class="did">HTML & CSS</span>
-            </div>
-            <div class="team-member">
-              <img src="img/team_canada/Alex.jpeg" alt="Alex" />
-              <span class="name">Alexandra Krolak</span>
-              <span class="did">HTML,CSS & <br />Front-End JS</span>
-            </div>
-          </div>
         </section>
         <section id="tech">
           <h2>Key Takeaways 🔑</h2>
@@ -280,16 +178,23 @@
             </li>
           </ul>
         </section>
+        <section id="RBIportal"
+          data-background-iframe="https://rbigbsportal.rbi.com/en/support/home"
+          data-background-interactive
+        ></section>
+        <section id="THportal"
+        data-background-iframe="https://thgbsportal.rbi.com/en/support/home"
+        data-background-interactive
+      ></section>
+      <section id="BKportal"
+      data-background-iframe="https://bkgbsportal.rbi.com/en/support/home"
+      data-background-interactive
+    ></section>
+    <section id="PLKportal"
+    data-background-iframe="https://plkgbsportal.rbi.com/en/support/home"
+    data-background-interactive
+  ></section>
         <section id="outro">
-          <h2>
-            Explore our site <br />
-            <a
-              href="https://team-canada-timhortons.herokuapp.com/"
-              target="_blank"
-              >https://team-canada-timhortons.herokuapp.com/</a
-            >
-          </h2>
-          <br />
           <h2>Questions?</h2>
         </section>
       </div>
