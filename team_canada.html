@@ -138,7 +138,7 @@
             const app = express();
             
             app.post('/checkout', async (request, response) => {
-              const { cart } = request.body;
+              const {cart} = request.body;
               const lineItems = Object.keys(cart).map(priceId => ({
                 price: priceId,
                 quantity: cart[priceId],
